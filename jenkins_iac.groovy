@@ -15,7 +15,7 @@ def getJsonConfigTree(command) {
 def jsonProjectsStruct = getJsonConfigTree(tree_command)
 println jsonProjectsStruct
 
-for (jsonProjectStruct in jsonProjectsStruct.contents) {
+for (jsonProjectStruct in jsonProjectsStruct[0].contents) {
     jsonProjectStruct.info = jsonProjectStruct.name + " builds"
     
     println dslBuildProject(jsonProjectStruct, [])
