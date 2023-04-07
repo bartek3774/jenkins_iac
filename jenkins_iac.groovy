@@ -1,1 +1,13 @@
-println "This is message from DSL job groovy script file!"
+import groovy.json.JsonSlurper
+
+def config_root_path = "${WORKSPACE}/jobs_config"
+
+def tree_command = "tree -J ${config_root_path}"
+
+def getJsonConfigTree(command) {
+    def tree = ['bash', '-c', "${command}"].execute().text
+    return new JsonSlurper().parseText(tree)
+}
+
+
+println getJsonConfigTree(tree_command)
