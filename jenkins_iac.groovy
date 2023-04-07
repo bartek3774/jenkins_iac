@@ -10,4 +10,4 @@ def getJsonConfigTree(command) {
 }
 
 
-println getJsonConfigTree(tree_command)
+def jsonProjectStruct = getJsonConfigTree(tree_command)
